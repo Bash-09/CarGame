@@ -4,6 +4,8 @@ var max_velocity = 500
 var acceleration = 300
 var deceleration_rate = 0.95
 var turn_rate = 3
+#Exported some variables so we can easily tweak if needed
+export var movespeed = 300;
 
 var velocity: Vector2 = Vector2.ZERO
 
@@ -52,4 +54,5 @@ func move(delta):
 	rotation = velocity.angle()
 	
 	# Just simulates a scrolling screen
-	position.x -= 450 * delta
+	position.x -= movespeed * delta
+	
