@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Placeholder royalty free music.mp3-6e6704ce8ef8c18a50a91a19792b413a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Placeholder royalty free music.mp3"
+dest_files=[ "res://.import/Placeholder royalty free music.mp3-6e6704ce8ef8c18a50a91a19792b413a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
