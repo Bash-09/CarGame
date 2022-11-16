@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/Car_Red.png" type="Texture" id=2]
 
-[node name="Player" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 28.0
+height = 56.0
+
+[node name="PlayerCar" type="Sprite"]
+position = Vector2( 451, 315 )
+texture = ExtResource( 2 )
 script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 1 )
+rotation = 1.5708
+shape = SubResource( 1 )
