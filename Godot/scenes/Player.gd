@@ -60,7 +60,7 @@ func move(delta):
 	
 	
 func die():
-	#Will signal some sort of hurt animation
+	#Will do some sort of hurt animation, something
 	pass
 
 #Hit detection

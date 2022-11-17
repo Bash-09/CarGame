@@ -23,11 +23,14 @@ func _ready():
 		obsSprite.set_texture(obs_tex3)
 	if myRand == 4:
 		obsSprite.set_texture(obs_tex4)
-	#I have no idea why this does not work properly, need to fix later
+	#I have no idea why this does not work properly, need to fix later, maybe hardcode idk
+	#Get the size of the sprite
 	var obsWitdth = obsSprite.texture.get_width()
 	var obsHeight = obsSprite.texture.get_height()
-	$CollisionShape2D.shape.extents = Vector2(obsWitdth, obsHeight)
-	print(obsHeight)
+	#Update the obstacle's collision shape to be the size of the sprite
+	$CollisionShape2D.shape.extents.x = obsWitdth
+	$CollisionShape2D.shape.extents.y = obsHeight
+	
 	
 
 
