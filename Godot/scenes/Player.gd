@@ -1,4 +1,6 @@
-extends Sprite
+extends Area2D
+
+signal hit
 
 var max_velocity = 500
 var acceleration = 300
@@ -56,3 +58,14 @@ func move(delta):
 	# Just simulates a scrolling screen
 	position.x -= movespeed * delta
 	
+	
+func die():
+	#Will signal some sort of hurt animation
+	pass
+
+#Hit detection
+func _on_Player_area_entered(area):
+	if area.is_in_group("obstacles"):
+		emit_signal("hit")
+		die()
+		area.destroy()

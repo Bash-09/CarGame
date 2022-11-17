@@ -3,16 +3,19 @@
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/Car_Red.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 28.0
-height = 56.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 19.4998, 49.0001 )
 
-[node name="PlayerCar" type="Sprite"]
+[node name="Player" type="Area2D"]
 position = Vector2( 451, 315 )
-texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 1 )
+position = Vector2( 0, 0.5 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="PlayerCar" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]

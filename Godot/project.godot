@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="CarGame"
+run/main_scene="res://scenes/Map.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -22,6 +23,14 @@ window/size/fullscreen=true
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+Exit={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 

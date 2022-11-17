@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/graphics/road_fixed.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Obstacle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Map.gd" type="Script" id=4]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -21,6 +23,8 @@ shader_param/direction = Vector2( 1, 0 )
 shader_param/speed_scale = 0.3
 
 [node name="Map" type="Node"]
+script = ExtResource( 4 )
+Obstacle = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource( 2 )
@@ -33,3 +37,11 @@ stretch_mode = 2
 position = Vector2( 102, 124 )
 scale = Vector2( 1.07422, 1.26953 )
 movespeed = 330
+
+[node name="Obstacle" parent="." instance=ExtResource( 3 )]
+movespeed = 30
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="hit" from="PlayerCar" to="." method="_on_PlayerCar_hit"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
