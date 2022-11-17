@@ -28,8 +28,8 @@ func _ready():
 	var obsWitdth = obsSprite.texture.get_width()
 	var obsHeight = obsSprite.texture.get_height()
 	#Update the obstacle's collision shape to be the size of the sprite
-	$CollisionShape2D.shape.extents.x = obsWitdth
-	$CollisionShape2D.shape.extents.y = obsHeight
+	$CollisionShape2D.shape.extents.x = obsWitdth / 2
+	$CollisionShape2D.shape.extents.y = obsHeight / 2
 	
 	
 

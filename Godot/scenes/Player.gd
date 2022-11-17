@@ -30,8 +30,8 @@ func move(delta):
 	var mouse_pos = get_viewport().get_mouse_position()
 	
 	# Clamp target position to be in front of the car to avoid driving backwards
-	if mouse_pos.x < position.x:
-		mouse_pos.x = position.x
+#	if mouse_pos.x < position.x:
+#		mouse_pos.x = position.x
 	
 	var target_vector: Vector2 = (mouse_pos - position).normalized()
 	var facing_vector: Vector2 = Vector2.RIGHT.rotated(rotation)
