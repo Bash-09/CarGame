@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/graphics/road_fixed.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Obstacle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Map.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Boost.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -42,6 +43,8 @@ movespeed = 330
 movespeed = 30
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="Boost" parent="." instance=ExtResource( 5 )]
 
 [connection signal="hit" from="PlayerCar" to="." method="_on_PlayerCar_hit"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

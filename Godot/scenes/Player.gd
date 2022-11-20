@@ -85,7 +85,12 @@ func die():
 
 #Hit detection
 func _on_Player_area_entered(area):
+	#If the player hits an obstacle, currently just removes the obstacle
 	if area.is_in_group("obstacles"):
 		emit_signal("hit")
 		die()
 		area.destroy()
+		
+	if area.is_in_group("boosts"):
+		velocity = velocity * 2
+		
