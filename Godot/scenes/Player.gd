@@ -6,8 +6,12 @@ var max_velocity = 450
 var acceleration = 250
 var deceleration_rate = 0.95
 var turn_rate = 4
+var boost: float = 0;
+
 #Exported some variables so we can easily tweak if needed
 export var movespeed = 300;
+export var boost_amount = 1.2;
+export var boost_falloff_rate: float = 0.95; # Rate at which the boost falls off
 
 var velocity: Vector2 = Vector2.ZERO
 var was_drifting: bool = false;
@@ -65,20 +69,24 @@ func move(delta):
 			
 		# Bring velocity back down to max_velocity
 		if velocity.length_squared() > (max_velocity * max_velocity):
-			velocity -= velocity.normalized() * delta * max_velocity
+			velocity = velocity.normalized() * max_velocity
 	
 	else:
 		# Decelerate
 		velocity -= velocity * deceleration_rate * delta
 	
-	
 	# Move
-	position += velocity * delta;
+	position += velocity * delta * (boost + 1);
+	
+	# Reduce boost
+	boost -= boost * boost_falloff_rate * delta
+	if boost < 0.05:
+		boost = 0
 	
 	# Just simulates a scrolling screen
 	position.x -= movespeed * delta
 	
-	
+
 func die():
 	#Will do some sort of hurt animation, something
 	pass
@@ -92,5 +100,5 @@ func _on_Player_area_entered(area):
 		area.destroy()
 		
 	if area.is_in_group("boosts"):
-		velocity = velocity * 2
+		boost = boost_amount
 		
