@@ -1,6 +1,6 @@
 extends Area2D
 
-export var movespeed = 330;
+export var movespeed = 300;
 
 const images = [
 	preload("res://assets/graphics/obs1.png"),
@@ -22,7 +22,7 @@ func _process(delta):
 	#Lmao we should increase the movespeed as time goes on, everything gets faster
 	position.x -= movespeed * delta
 	#Get rid of object if it leaves the screen
-	if position.x < -200:
+	if position.x < -$Sprite.texture.get_width():
 		queue_free()
 	
 

@@ -2,15 +2,15 @@ extends Area2D
 
 signal hit
 
-var max_velocity = 450
-var acceleration = 250
+var max_velocity = 400
+var acceleration = 200
 var deceleration_rate = 0.95
 var turn_rate = 4
 var boost: float = 0;
 
 #Exported some variables so we can easily tweak if needed
 export var movespeed = 300;
-export var boost_amount = 1.2;
+export var boost_amount = 1;
 export var boost_falloff_rate: float = 0.95; # Rate at which the boost falls off
 
 var velocity: Vector2 = Vector2.ZERO
@@ -89,6 +89,7 @@ func move(delta):
 
 func die():
 	#Will do some sort of hurt animation, something
+	velocity = Vector2.ZERO
 	pass
 
 #Hit detection
