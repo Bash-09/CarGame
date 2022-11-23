@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/graphics/Sina Nova W01 Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/CreditsScreen.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="CreditsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.466
+anchor_right = 0.475
+margin_left = 7.0
+margin_top = 16.0
+margin_right = 47.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.202
+anchor_top = 0.055
+anchor_right = 0.771
+anchor_bottom = 0.688
+margin_left = -26.56
+margin_top = 55.955
+margin_right = 53.12
+margin_bottom = -18.872
+custom_fonts/normal_font = SubResource( 2 )
+text = "A geologist is a scientist who studies the solid, liquid, and gaseous matter that constitutes Earth and other terrestrial planets, as well as the processes that shape them. Geologists usually study geology, earth science, or geophysics, although backgrounds in physics, chemistry, biology, and other sciences are also useful. Field research (field work) is an important component of geology, although many subdisciplines incorporate laboratory and digitalized work. Geologists can be classified in a larger group of scientists, called geoscientists.
+
+
+Geologists work in the energy and mining sectors searching for natural resources such as petroleum, natural gas, precious and base metals. They are also in the forefront of preventing and mitigating damage from natural hazards and disasters such as earthquakes, volcanoes, tsunamis and landslides. Their studies are used to warn the general public of the occurrence of these events. Geologists are also important contributors to climate change discussions. "
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.753
+anchor_right = 0.5
+anchor_bottom = 0.753
+margin_left = -26.0
+margin_top = -9.10699
+margin_right = 15.0
+margin_bottom = 17.893
+rect_scale = Vector2( 1.4, 1.4 )
+custom_fonts/font = SubResource( 3 )
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

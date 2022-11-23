@@ -28,6 +28,7 @@ func _process(delta):
 
 #Controls what happens to the obstacle when being hit by the car
 func destroy():
+	
 	hide()
 	queue_free()
 	

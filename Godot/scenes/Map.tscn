@@ -50,5 +50,8 @@ movespeed = 30
 
 [node name="Boost" parent="." instance=ExtResource( 5 )]
 
+[node name="BoostSpawnTimer" type="Timer" parent="."]
+
 [connection signal="hit" from="PlayerCar" to="." method="_on_PlayerCar_hit"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="BoostSpawnTimer" to="." method="_on_BoostSpawnTimer_timeout"]
