@@ -14,6 +14,10 @@ config/name="CarGame"
 run/main_scene="res://scenes/Map.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/width=1280

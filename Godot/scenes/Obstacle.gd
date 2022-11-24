@@ -2,6 +2,7 @@ extends Area2D
 
 export var movespeed = 300;
 
+
 const images = [
 	preload("res://assets/graphics/obs1.png"),
 	preload("res://assets/graphics/obs2.png"),
@@ -12,6 +13,7 @@ const images = [
 func _ready():
 	var chosenTexture = images[randi()%images.size()]
 	
+	$ExplosionAnimation.visible = false
 	$Sprite.set_texture(chosenTexture)
 	$CollisionShape2D.shape.set_extents(chosenTexture.get_size() / 2)
 	
@@ -28,7 +30,8 @@ func _process(delta):
 
 #Controls what happens to the obstacle when being hit by the car
 func destroy():
-	
-	hide()
-	queue_free()
+	$ExplosionAnimation.visible = true
+	$ExplosionAnimation.play("explode")
+	$Sprite.visible = false
+	#queue_free()
 	
