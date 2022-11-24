@@ -58,6 +58,8 @@ visible = false
 position = Vector2( 658, 306 )
 current = true
 
+[node name="SoundEffectPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="hit" from="PlayerCar" to="." method="_on_PlayerCar_hit"]
 [connection signal="hit" from="PlayerCar" to="ScreenShake" method="_on_PlayerCar_hit"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

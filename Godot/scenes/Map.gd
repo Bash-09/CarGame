@@ -6,8 +6,8 @@ export(PackedScene) var Boost
 
 onready var screensize = get_viewport().get_visible_rect().size
 
-
-
+var explosion_sound = "res://assets/audio/Explosion Sound Effect.mp3"
+var sfx = load(explosion_sound)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +15,7 @@ func _ready():
 	$Obstacle.hide()
 	$SpawnTimer.start()
 	$BoostSpawnTimer.start()
+	
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,7 +48,10 @@ func _on_SpawnTimer_timeout():
 
 
 func _on_PlayerCar_hit():
-	pass
+	
+	$SoundEffectPlayer.stream = sfx
+	$SoundEffectPlayer.set_pitch_scale(1 + (rand_range(-5, 5)/10))
+	$SoundEffectPlayer.play()
 
 
 func _on_PlayerCar_boosting():
